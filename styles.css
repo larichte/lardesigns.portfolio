@@ -1,5 +1,8 @@
 /*CSS Styles by Laura A. Richter*/
 
+/*Figma Wireframes:
+https://www.figma.com/design/PPFQ5mPA98ufTXcsIx3daA/Portfolio?node-id=0-1&p=f&t=3RnJYRX48uhP2k91-0*/
+
 /*!!!!!!!!!Use Bell MT font - matches logo!!!!!!!!!!!!!*/
 
 /*CSS Reset*/
@@ -122,6 +125,22 @@ header nav ul li:hover{
 	transform: scale(1.1, 1.1);
 }
 
+/*Aside Styles*/
+aside{
+	margin: 1rem;
+	color: var(--silver);
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+aside h2{
+	grid-column: 1/4;
+}
+
+aside p{
+	grid-column: 1/2;
+}
+
 main{
 	margin: 1rem 0;
 	padding: 2rem;
@@ -129,6 +148,8 @@ main{
 	border-radius: 40px;
 }
 
+/*
+<--Switch the bio section back to be in main instead of aside if use this-->
 #bio{
 	display: grid;
 	grid-template-columns: auto auto auto;
@@ -164,6 +185,7 @@ main #bio img{
 	align-items: right;
 	padding-left: 1rem;
 }
+*/
 
 h2{
 	font-size: 2em;
@@ -223,5 +245,21 @@ footer{
 
 /*Media Queries*/
 @media screen and (max-width:480px){}
-@media screen and (max-width:900px){}
-@media screen and (max-width:1263px){}
+@media screen and (max-width:768px){}
+@media screen and (max-width:1025px){
+/*Aside Styles*/
+aside{
+	margin: 1rem;
+	color: var(--silver);
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+}
+
+aside h2{
+	grid-column: 1/4;
+}
+
+aside p{
+	grid-column: 1/2;
+}
+}
