@@ -188,6 +188,10 @@ h3{
 	padding: 2rem;
 }
 
+#best ul li img{
+	align-items: center;
+}
+
 #best ul li a{
 	text-decoration: none;
 	background-color: var(--lavender);
