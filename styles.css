@@ -82,17 +82,53 @@ body{
 	line-height: 1.25em;
 	font-family: "Bell MT", serif;
 	max-width:1500px;
-	min-width: 320px;
 	margin: 0 auto;
 	background-color: var(--plum);
 }
 
+h1{
+	font-size: 3em;
+	line-height: 3rem;
+	font-weight: bold;
+	color: var(--plum);
+}
+
+h2{
+	font-size: 2em;
+	font-weight: bold;
+	line-height: 2rem;
+	color: var(--plum);
+}
+
+h3{
+	color: var(--lavender);
+	font-size: 1.5em;
+	line-height: 2rem;
+	font-weight: bold;
+}
+/* Skip Link */
+.skip-link{
+  text-decoration: none;
+  background-color: var(--lavender);
+  color: var(--silver);
+  font-weight: bold;
+  padding: 0.5rem;
+  border-radius: 0 0 10px 10px;
+  left: 0;
+  position: absolute;
+  transform: translateY(-500%);
+  transition: transform 0.3s;
+}
+
+.skip-link:focus{
+  transform: translateY(-325%);
+}
+
 /* Header Styles */
 header{
-	background-color: var(--silver);
+	background-color:var(--silver);
 	padding: 1rem;
 	position: relative;
-	width: max-content;
 	display: grid;
 	grid-template-columns: auto auto;
 	grid-template-rows: auto auto;
@@ -105,10 +141,6 @@ header a{
 }
 
 header h1{
-	font-size: 3em;
-	line-height: 3rem;
-	font-weight: bold;
-	color: var(--plum);
 	grid-column: 1/2;
 	grid-row: 2/3;
 }
@@ -132,13 +164,15 @@ nav{
 	border-radius: 100px;
 	width: max-content;
 	position: absolute;
-	right: 25px;
+	right: 15px;
 	top: 10px;
 	z-index: 2;
 	cursor: pointer;
 }
 
-.hamburger-menu:has(input:focus-visible)::before, .hamburger-menu:has(input:focus-visible)::after, .hamburger-menu input:focus-visible{}
+.hamburger-menu:has(input:focus-visible)::before, .hamburger-menu:has(input:focus-visible)::after{
+	outline: 0.5px solid var(--silver);
+}
 
 .hamburger-menu::before, .hamburger-menu::after, .hamburger-menu input{
 	content:"";
@@ -146,7 +180,7 @@ nav{
 	height: var(--bar-height);
 	background-color: var(--lavender);
 	transform-origin: left center;
-	transition: opacity 0.5s ease-in-out, width 0.5s ease-in-out, rotate 0.5s ease-in-out, translate 0.5s ease-in-out;
+	transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out, rotate 0.3s ease-in-out, translate 0.3s ease-in-out;
 }
 
 .hamburger-menu input{
@@ -179,26 +213,27 @@ nav{
 .sidebar{
 	grid-column: 2/3;
 	grid-row: 2/3;
-	transition: translate 0.5s ease-in-out;
-	translate: 300%;
+	transition: transform 0.3s ease-in-out;
+	transform: translateY(-125%);
 	padding: 1rem;
 	margin-top: calc(var(--hamburger-height) + 1rem);
 	max-width: max-content;
 }
 
 .hamburger-menu:has(input:checked) + .sidebar{
-	translate: 10%;
+	transform: translateY(0%);
 }
 
 .sidebar li{
 	background-color: var(--lavender);
 	max-width: 75px;
 	font-weight: bold;
+	text-align: center;
 	padding: .5rem;
 	margin: .25rem;
 	border-radius: 15px;
 	box-shadow: var(--drop-shadow-sm);
-	transition: transform .5s;
+	transition: transform .3s;
 }
 
 .sidebar li a{
@@ -211,143 +246,64 @@ nav{
 	transform: scale(1.1, 1.1);
 }
 
-/*header nav h2{
-    visibility:hidden; 
-    height:1px;
-    width: 1px;
-}
-
-header nav ul{
-	display: flex;
-	margin-left: auto;
-	position: absolute;
-	right: 0;
-}
-
-header nav ul li{
-	background-color: var(--lavender);
-	font-weight: bold;
-	padding: 1rem;
-	margin: 1rem;
-	border-radius: 15px;
-	box-shadow: var(--drop-shadow-sm);
-	transition: transform .5s;
-}
-
-header nav ul li a{
-	text-decoration: none;
-	color: var(--silver);
-	font-size: 1.15em;
-}
-
-header nav ul li:hover{
-	background-color: var(--plum);
-	transform: scale(1.1, 1.1);
-}
-*/
-
-/*Aside Styles*/
-aside{
-	margin: 1rem;
-	color: var(--silver);
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-}
-
-aside h2{
-	grid-column: 1/4;
-}
-
-aside p{
-	grid-column: 1/2;
-}
-
 main{
-	margin: 1rem 0;
-	padding: 2rem;
-	background-color: white;
-	border-radius: 40px;
-}
-
-/*
-<--Switch the bio section back to be in main instead of aside if use this-->
-#bio{
-	display: grid;
-	grid-template-columns: auto auto auto;
-	width: 65%;
+	background-color: var(--silver);
 	margin: 0 auto;
-	margin-bottom: 3rem;
 }
 
-main #bio, #bio h2, #bio p{
-	background-color: var(--plum);
-	color: var(--silver);
-	padding: 1rem;
-	border-radius: 40px;
-	grid-column: 1/2;
-}
-
-main #bio #icons{
+/*Bio Styles*/
+#bio{
 	display: flex;
 	flex-direction: column;
-	grid-column: 2/3;
-	grid-row: 1/5;
-	justify-content: space-evenly;
+	background-color: var(--plum);
+	padding: 1rem;
+	margin: 1rem 0;
 }
 
-main #bio h2{
-	padding-top: 3rem;
-}
-
-main #bio img{
+#bio h2, #bio img, #bio p{
+	width: 350px;
+	margin: 0 auto;
+	text-align: center;
+	color: var(--silver);
+	padding: 0.5rem;
 	border-radius: 40px;
-	grid-column: 3/4;
-	grid-row: 1/5;
-	align-items: right;
-	padding-left: 1rem;
-}
-*/
-
-h2{
-	font-size: 2em;
-	font-weight: bold;
-	line-height: 2rem;
-	color: var(--plum);
 }
 
-h3{
-	color: var(--lavender);
-	font-size: 1.5em;
-	line-height: 2rem;
-	font-weight: bold;
+/*Best Styles*/
+#best{
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: column;
+	padding: 1rem;
 }
 
-#best ul{
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+#best h2, #best ul{
+	margin: 0 auto;
 }
 
 #best ul li{
-	padding: 2rem;
-}
-
-#best ul li img{
+	background-color: white;
+	border-radius: 40px;
+	box-shadow: var(--drop-shadow);
+	width: 350px;
+	padding: 1rem;
+	margin: 1rem;
+	display: flex;
+	flex-direction: column;
 	align-items: center;
 }
 
 #best ul li a{
 	text-decoration: none;
 	background-color: var(--lavender);
-	color: var(--silver);
+	padding: 1rem;
+	margin: 0.5rem;
 	font-size: 1.15em;
 	font-weight: bold;
-	margin: 1rem;
-	padding: 1rem;
-	display: block;
+	color: var(--silver);
 	border-radius: 40px;
 	box-shadow: var(--drop-shadow-sm);
-	text-align: center;
-	transition: transform .5s;
+	transition: transform 0.3s ease-in-out;
 }
 
 #best ul li a:hover{
@@ -358,29 +314,72 @@ h3{
 footer{
 	background-color: var(--silver);
 	text-align: center;
-	border-radius: 40px 40px 0 0;
+	margin-top: 2rem;
 	padding: 1rem;
 	color: var(--plum);
 }
 
 
 /*Media Queries*/
-@media screen and (max-width:480px){}
-@media screen and (max-width:768px){}
-@media screen and (max-width:1025px){
-/*Aside Styles*/
-aside{
-	margin: 1rem;
-	color: var(--silver);
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+@media screen and (min-width:480px){
+	#best ul li{
+		width: auto;
+	}
 }
+@media screen and (min-width:768px){
+	/* Header Styles */
+	.hamburger-menu{
+		visibility: hidden;
+	}
 
-aside h2{
-	grid-column: 1/4;
-}
+	header{
+		grid-template-columns: 100px auto;
+	}
 
-aside p{
-	grid-column: 1/2;
+	header a{
+		grid-column: 1/2;
+		grid-row: 1/2;
+	}
+
+	header h1{
+		grid-column: 2/3;
+		grid-row: 1/2;
+		align-self: end;
+		text-align: center;
+	}
+
+	nav{
+		grid-row: 2/3;
+		grid-column: 2/3;
+	}
+
+	.sidebar{
+		transform: none;
+		display: flex;
+		margin: 0 auto;
+		gap: 1rem;
+	}
+
+	.sidebar li{
+		max-width: 100%;
+	}
+
+	/* Bio Styles */
+	#bio{
+		display: grid;
+		grid-template-columns: auto auto;
+		grid-template-rows: auto auto auto auto;
+	}
+
+	#bio img{
+		grid-row: 1/5;
+		grid-column: 2/3;
+		width: 300px;
+		align-self: center;
+	}
+
+	#bio h2, #bio p{
+		text-align: left;
+	}
 }
-}
+@media screen and (min-width:1025px){}
